@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>American Express Payment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #payment-form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #1a237e;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0d47a1;
+        }
+
+        #success-message {
+            display: none;
+            color: #1a237e;
+            margin-top: 10px;
+        }
+
+        #logo {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="payment-form">
+        <img id="logo" src="images/amex.png" alt="American Express Logo">
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" placeholder="Enter card number">
+
+        <label for="expiryDate">Expiry Date:</label>
+        <input type="month" id="expiryDate" placeholder="MM/YY">
+
+        <label for="cid">CID:</label>
+        <input type="text" id="cid" placeholder="CID">
+
+        <button onclick="submitPayment()">Submit Payment</button>
+
+        <div id="success-message">Payment successful!</div>
+    </div>
+
+    <script>
+        function submitPayment() {
+            var cardNumber = document.getElementById('cardNumber').value;
+            var expiryDate = document.getElementById('expiryDate').value;
+            var cid = document.getElementById('cid').value;
+
+            // Extract month and year
+            var month = expiryDate.split('-')[1];
+            var year = expiryDate.split('-')[0].substring(2);
+
+            // Perform validation and payment processing here
+            // For simplicity, we'll just show a success message
+            document.getElementById('success-message').style.display = 'block';
+
+            console.log('Card Number:', cardNumber);
+            console.log('Expiry Date:', month + '/' + year);
+            console.log('CID:', cid);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neurological Screening Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        select {
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Comprehensive Neurological Screening</h2>
+        <p>
+            This screening is designed to assess and monitor various aspects of neurological health.
+        </p>
+
+        <h3>Tests Included:</h3>
+        <ul>
+            <li><strong>Neurological Examination:</strong> Comprehensive examination to assess neurological function.</li>
+            <li><strong>Brain Imaging:</strong> MRI or CT scans to visualize the structure of the brain.</li>
+            <li><strong>Electroencephalogram (EEG):</strong> Measures electrical activity in the brain to detect abnormalities.</li>
+            <li><strong>Nerve Conduction Study:</strong> Evaluates how well the nerves transmit electrical signals.</li>
+            <li><strong>Cognitive Function Assessment:</strong> Tests to assess memory, attention, and other cognitive functions.</li>
+            <li><strong>Reflex Testing:</strong> Checks reflexes to assess the integrity of the nervous system.</li>
+            <li><strong>Neuromuscular Imaging:</strong> Imaging studies to assess the health of nerves and muscles.</li>
+            <li><strong>Evoked Potential Tests:</strong> Measures the electrical activity of the brain in response to stimuli.</li>
+            <li><strong>Neurological Blood Tests:</strong> Checks for markers related to neurological health.</li>
+            <!-- Add more neurological screening tests if needed -->
+        </ul>
+
+        <label for="selectIndividuals">Select Number of Individuals:</label>
+        <select id="selectIndividuals" onchange="updateSelection()">
+            <option value="1">1 Individual</option>
+            <option value="2">2 Individuals</option>
+            <option value="3">3 Individuals</option>
+            <option value="4">4 Individuals</option>
+            <option value="5">5 Individuals</option>
+        </select>
+
+        <label for="selectFamily">Select Family Package:</label>
+        <select id="selectFamily" onchange="updateSelection()">
+            <option value="single">Single Family (5 Individuals)</option>
+            <option value="double">Double Family (10 Individuals)</option>
+            <!-- Add more family package options if needed -->
+        </select>
+
+        <button onclick="calculatePayment()">Calculate Payment</button>
+        <div id="paymentDetails"></div>
+    </div>
+
+    <script>
+        function updateSelection() {
+            var selectIndividuals = document.getElementById("selectIndividuals");
+            var selectFamily = document.getElementById("selectFamily");
+
+            if (selectIndividuals.value !== "1") {
+                selectFamily.disabled = true;
+            } else {
+                selectFamily.disabled = false;
+            }
+
+            if (selectFamily.value !== "single") {
+                selectIndividuals.disabled = true;
+            } else {
+                selectIndividuals.disabled = false;
+            }
+        }
+
+        function calculatePayment() {
+            var selectIndividuals = document.getElementById("selectIndividuals");
+            var selectFamily = document.getElementById("selectFamily");
+            var numberOfIndividuals = parseInt(selectIndividuals.value);
+
+            var pricePerIndividual = 2499.00; // Set your base price per individual
+            var totalPrice = numberOfIndividuals * pricePerIndividual;
+
+            // Additional pricing for family packages
+            if (selectFamily.value === "single") {
+                totalPrice *= 5; // Single Family (5 Individuals)
+            } else if (selectFamily.value === "double") {
+                totalPrice *= 10; // Double Family (10 Individuals)
+            }
+
+            var paymentDetailsDiv = document.getElementById("paymentDetails");
+            paymentDetailsDiv.innerHTML = `
+                <p>Total Number of Individuals: ${numberOfIndividuals}</p>
+                <p>Selected Family Package: ${selectFamily.options[selectFamily.selectedIndex].text}</p>
+                <p>Total Price: ₹${totalPrice.toFixed(2)}</p>
+                <button onclick="processPayment()">Proceed to Payment</button>
+            `;
+        }
+
+        function processPayment() {
+            // Implement your payment processing logic here
+            alert("Redirecting to the payment gateway...");
+			 window.location.href = 'payment.html';
+        }
+    </script>
+</body>
+</html>

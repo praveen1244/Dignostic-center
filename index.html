@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Diagnostic Center</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Diagnostic Center, Medical Testing, Health Services, Lab Tests" />
+    <script type="text/javascript">addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/slider.css">
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <!--/web-font-->
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <!--/script-->
+    <style>
+        /* Add styles for menu item colors */
+        .nav-wil .menu__link {
+            color: white; /* Change the color for home, about us, login, and doctor consultancy */
+        }
+        .nav-wil .menu__link.dropdown-toggle {
+            color: red; /* Change the color for book your health package and collect samples from home */
+        }
+		<!-- ... (existing HTML code) ... -->
+
+<style>
+    /* Add styles for menu item colors */
+    .nav-wil .menu__link {
+        color: white; /* Change the color for home, about us, login, and doctor consultancy */
+    }
+    .nav-wil .menu__link.dropdown-toggle {
+        color: red; /* Change the color for book your health package and collect samples from home */
+    }
+
+    /* CSS for Explore button */
+    .explore-button {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .explore-link {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: red;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+    }
+
+    .explore-link:hover {
+        background-color: darkred;
+    }
+
+<!-- ... (existing HTML code) ... -->
+
+		/* CSS for Explore button */
+.explore-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.explore-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.explore-link:hover {
+    background-color: darkred;
+}
+ /* Styles for footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Styles for Explore button in footer */
+        .explore-footer {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .explore-footer:hover {
+            background-color: darkred;
+        }
+
+      
+
+    </style>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){        
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+            });
+        });
+    </script>
+</head>
+<body>
+
+<!--header-top-->
+<div class="header-top">
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="logo">
+                    <h1><a class="navbar-brand" href="index.html"><span style="color: white;"></span>Diagnostic Center  <img src="images/logo.png" alt=" " /></a></h1>
+                </div>
+            </div>
+             <!-- Collect the nav links, forms, and other content for toggling -->
+             <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                <!-- ... Your existing HTML code ... -->
+
+<div class="top-menu">
+    <nav class="menu menu--francisco">
+        <ul class="nav navbar-nav menu__list">
+            <li class="menu__item menu__item--current"><a href="index.html" class="menu__link"><span style="color: white;" class="menu__helper">Home</span></a></li>
+            <li class="menu__item"><a href="about.html" class="menu__link"><span style="color: white;" class="menu__helper">About Us</span></a></li>
+            <li class="menu__item dropdown">
+                <a href="#" class="menu__link dropdown-toggle" data-toggle="dropdown">
+                    <span style="color: white;" class="menu__helper">Book your medical test</span> <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="package.html" style="color: red;">Book Your Health Package</a></li>
+                    <li><a href="test.html" style="color: red;">Book Your Test</a></li>
+                    <li><a href="collect_samples.html" style="color: red;">Collect Samples from Home</a></li>
+                </ul>
+            </li>
+            <li class="menu__item"><a href="http://localhost/project/login.php" class="menu__link"><span style="color: white;" class="menu__helper">Login</span></a></li> <!-- Added login link -->
+            <li class="menu__item"><a href="contact.html" class="menu__link"><span style="color: white;" class="menu__helper">contact us</span></a></li>
+        </ul>
+    </nav>
+</div>
+<div class="explore-button">
+    <a href="about.html" class="explore-link">Explore</a>
+</div>
+
+<!-- ... Your existing HTML code ... -->
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!--//header-top-->
+
+<!-- Add video background -->
+<video autoplay loop muted id="video-background">
+   <source src="images/log1.mp4" type="video/mp4"> 
+</video>
+
+<!--start-smooth-scrolling-->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $().UItoTop({ easingType: 'easeOutQuart' });
+    });
+</script>
+<!--end-smooth-scrolling-->
+<a href="#house" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<script src="js/bootstrap.js"></script>
+</body>
+</html> 

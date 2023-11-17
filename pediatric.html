@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pediatric Health Checkup Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        select {
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Comprehensive Pediatric Health Checkup</h2>
+        <p>
+            This health check is designed for children, covering a range of tests to assess and monitor various aspects of pediatric health.
+        </p>
+
+        <h3>Tests Included:</h3>
+        <ul>
+            <li><strong>Physical Examination:</strong> Comprehensive examination to assess the child's overall health.</li>
+            <li><strong>Developmental Milestones Assessment:</strong> Evaluates the child's physical and mental development.</li>
+            <li><strong>Immunization Review:</strong> Ensures the child is up-to-date with recommended vaccinations.</li>
+            <li><strong>Blood Tests:</strong> Includes complete blood count (CBC) and other relevant tests.</li>
+            <li><strong>Urine Analysis:</strong> Checks for any abnormalities in the urine.</li>
+            <li><strong>Vision and Hearing Screening:</strong> Assessments to detect any issues with vision or hearing.</li>
+            <li><strong>Growth Chart Analysis:</strong> Monitors the child's growth patterns over time.</li>
+            <li><strong>Nutritional Assessment:</strong> Evaluates the child's diet and nutritional status.</li>
+            <li><strong>Common Pediatric Conditions Screening:</strong> Screens for conditions such as anemia, asthma, etc.</li>
+            <!-- Add more pediatric health checkup tests if needed -->
+        </ul>
+
+        <label for="selectChildren">Select Number of Children:</label>
+        <select id="selectChildren" onchange="updateSelection()">
+            <option value="1">1 Child</option>
+            <option value="2">2 Children</option>
+            <option value="3">3 Children</option>
+            <option value="4">4 Children</option>
+            <option value="5">5 Children</option>
+        </select>
+
+        <label for="selectFamily">Select Family Package:</label>
+        <select id="selectFamily" onchange="updateSelection()">
+            <option value="single">Single Family (5 Children)</option>
+            <option value="double">Double Family (10 Children)</option>
+            <!-- Add more family package options if needed -->
+        </select>
+
+        <button onclick="calculatePayment()">Calculate Payment</button>
+        <div id="paymentDetails"></div>
+    </div>
+
+    <script>
+        function updateSelection() {
+            var selectChildren = document.getElementById("selectChildren");
+            var selectFamily = document.getElementById("selectFamily");
+
+            if (selectChildren.value !== "1") {
+                selectFamily.disabled = true;
+            } else {
+                selectFamily.disabled = false;
+            }
+
+            if (selectFamily.value !== "single") {
+                selectChildren.disabled = true;
+            } else {
+                selectChildren.disabled = false;
+            }
+        }
+
+        function calculatePayment() {
+            var selectChildren = document.getElementById("selectChildren");
+            var selectFamily = document.getElementById("selectFamily");
+            var numberOfChildren = parseInt(selectChildren.value);
+
+            var pricePerChild = 899.00; // Set your base price per child
+            var totalPrice = numberOfChildren * pricePerChild;
+
+            // Additional pricing for family packages
+            if (selectFamily.value === "single") {
+                totalPrice *= 5; // Single Family (5 Children)
+            } else if (selectFamily.value === "double") {
+                totalPrice *= 10; // Double Family (10 Children)
+            }
+
+            var paymentDetailsDiv = document.getElementById("paymentDetails");
+            paymentDetailsDiv.innerHTML = `
+                <p>Total Number of Children: ${numberOfChildren}</p>
+                <p>Selected Family Package: ${selectFamily.options[selectFamily.selectedIndex].text}</p>
+                <p>Total Price: ₹${totalPrice.toFixed(2)}</p>
+                <button onclick="processPayment()">Proceed to Payment</button>
+            `;
+        }
+
+        function processPayment() {
+            // Implement your payment processing logic here
+            alert("Redirecting to the payment gateway...");
+			 window.location.href = 'payment.html';
+        }
+    </script>
+</body>
+</html>

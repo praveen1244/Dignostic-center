@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Women's Wellness Package Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        select {
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #e83e8c;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Comprehensive Women's Wellness Package</h2>
+        <p>
+            This wellness package is designed specifically for women, covering a range of tests to assess and monitor various aspects of women's health.
+        </p>
+
+        <h3>Tests Included:</h3>
+        <ul>
+            <li><strong>Pap Smear:</strong> Screens for cervical cancer and other abnormalities in the cervix.</li>
+            <li><strong>Mammogram:</strong> X-ray examination of the breasts to detect breast cancer early.</li>
+            <li><strong>Bone Density Test:</strong> Measures bone strength to assess the risk of osteoporosis.</li>
+            <li><strong>Thyroid Function Tests:</strong> Checks thyroid hormone levels, which can impact women's health.</li>
+            <li><strong>Hormone Level Check:</strong> Assesses levels of key hormones related to women's reproductive health.</li>
+            <li><strong>Ovarian Cancer Blood Test:</strong> Screens for markers associated with ovarian cancer.</li>
+            <li><strong>Cholesterol Level Test:</strong> Assesses cardiovascular health and risk of heart disease.</li>
+            <li><strong>STD Testing:</strong> Screens for sexually transmitted infections for overall health.</li>
+            <li><strong>Urinary Incontinence Evaluation:</strong> Assesses and addresses urinary health concerns.</li>
+            <!-- Add more women's wellness tests if needed -->
+        </ul>
+
+        <label for="selectPeople">Select Number of Women:</label>
+        <select id="selectPeople" onchange="updateSelection()">
+            <option value="1">1 Woman</option>
+            <option value="2">2 Women</option>
+            <option value="3">3 Women</option>
+            <option value="4">4 Women</option>
+            <option value="5">5 Women</option>
+        </select>
+
+        <label for="selectFamily">Select Family Package:</label>
+        <select id="selectFamily" onchange="updateSelection()">
+            <option value="single">Single Family (5 Women)</option>
+            <option value="double">Double Family (10 Women)</option>
+            <!-- Add more family package options if needed -->
+        </select>
+
+        <button onclick="calculatePayment()">Calculate Payment</button>
+        <div id="paymentDetails"></div>
+    </div>
+
+    <script>
+        function updateSelection() {
+            var selectPeople = document.getElementById("selectPeople");
+            var selectFamily = document.getElementById("selectFamily");
+
+            if (selectPeople.value !== "1") {
+                selectFamily.disabled = true;
+            } else {
+                selectFamily.disabled = false;
+            }
+
+            if (selectFamily.value !== "single") {
+                selectPeople.disabled = true;
+            } else {
+                selectPeople.disabled = false;
+            }
+        }
+
+        function calculatePayment() {
+            var selectPeople = document.getElementById("selectPeople");
+            var selectFamily = document.getElementById("selectFamily");
+            var numberOfWomen = parseInt(selectPeople.value);
+
+            var pricePerWoman = 1999.00; // Set your base price per woman
+            var totalPrice = numberOfWomen * pricePerWoman;
+
+            // Additional pricing for family packages
+            if (selectFamily.value === "single") {
+                totalPrice *= 5; // Single Family (5 Women)
+            } else if (selectFamily.value === "double") {
+                totalPrice *= 10; // Double Family (10 Women)
+            }
+
+            var paymentDetailsDiv = document.getElementById("paymentDetails");
+            paymentDetailsDiv.innerHTML = `
+                <p>Total Number of Women: ${numberOfWomen}</p>
+                <p>Selected Family Package: ${selectFamily.options[selectFamily.selectedIndex].text}</p>
+                <p>Total Price: ₹${totalPrice.toFixed(2)}</p>
+                <button onclick="processPayment()">Proceed to Payment</button>
+            `;
+        }
+
+        function processPayment() {
+            // Implement your payment processing logic here
+            alert("Redirecting to the payment gateway...");
+			 window.location.href = 'payment.html';
+        }
+    </script>
+</body>
+</html>

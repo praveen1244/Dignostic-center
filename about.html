@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Diagnostic Center</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            padding-top: 50px;
+        }
+
+        .navbar {
+            background-color: #1b6ca8;
+            border: none;
+            border-radius: 0;
+            margin-bottom: 0;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar-brand,
+        .navbar-nav li a {
+            color: white !important;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .navbar-brand {
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-toggle {
+            background-color: #1b6ca8;
+        }
+
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+        }
+
+        .header-top {
+            background-color: #1b6ca8;
+            padding: 10px 0;
+        }
+
+        .logo {
+            margin: 15px 0;
+        }
+
+        .main-textgrids {
+            padding: 50px 0;
+        }
+
+        .ab-pic img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .ab-text {
+            padding-left: 30px;
+        }
+
+        .ab-text h2 {
+            color: #1b6ca8;
+        }
+
+        .ab-text p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .ab ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .ab a {
+            text-decoration: none;
+            color: #1b6ca8;
+        }
+
+        /* Our Services Section Styles */
+        .our-services {
+            background-color: #f9f9f9;
+            padding: 50px 0;
+        }
+
+        .service-icon {
+            font-size: 36px;
+            color: #1b6ca8;
+        }
+
+        /* Reviews Section Styles */
+        .reviews {
+            background-color: #f9f9f9;
+            padding: 50px 0;
+        }
+
+        .review-box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .review-text {
+            font-size: 18px;
+            color: #1b6ca8;
+        }
+
+        .review-author {
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Opening Hours Section Styles */
+        .opening-hours {
+            background-color: #333;
+            color: white;
+            padding: 50px 0;
+        }
+
+        .opening-hours h3 {
+            color: #1b6ca8;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-contact {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Improved Dropdown Styles */
+        .dropdown-menu {
+            background-color: #1b6ca8;
+        }
+
+        .dropdown-menu>li>a {
+            color: white !important;
+        }
+
+        .dropdown-menu>li>a:hover {
+            background-color: #155580;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div class="header-top">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="logo">
+                        <h1><a class="navbar-brand" href="index.html"><span style="color: white;">Diagnostic Center </span><img src="images/logo.png" alt=" " /></a></h1>
+                    </div>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                    <!-- ... Your existing HTML code ... -->
+                    <div class="top-menu">
+                        <nav class="menu menu--francisco">
+                            <ul class="nav navbar-nav menu__list">
+                                <li class="menu__item menu__item--current"><a href="index.html" class="menu__link"><span style="color: white;" class="menu__helper">Home</span></a></li>
+                                <li class="menu__item"><a href="about.html" class="menu__link"><span style="color: white;" class="menu__helper">About Us</span></a></li>
+                                <li class="menu__item dropdown">
+                                    <a href="#" class="menu__link dropdown-toggle" data-toggle="dropdown">
+                                        <span style="color: white;" class="menu__helper">Book your medical test</span> <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="package.html">Book Your Health Package</a></li>
+                                        <li><a href="test.html">Book Your Test</a></li>
+                                        <li><a href="collect_samples.html">Collect Samples from Home</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu__item"><a href="http://localhost/project/login.php" class="menu__link"><span style="color: white;" class="menu__helper">Login</span></a></li> <!-- Added login link -->
+                                <li class="menu__item"><a href="contact.php" class="menu__link"><span style="color: white;" class="menu__helper">Contact Us</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Text Grids -->
+    <div class="main-textgrids">
+        <div class="container">
+            <div class="col-md-5 ab-pic">
+                <img src="images/ab.jpg" alt="Diagnostic Center">
+            </div>
+            <div class="col-md-7 ab-text">
+                <h2>Welcome to Diagnostic Center</h2>
+                <p>We are committed to providing exceptional medical diagnostics with a focus on accuracy and reliability. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu erat lacus, vel congue mauris. Fusce velit justo, faucibus eu sagittis ac, gravida quis tortor. Suspendisse non urna mi, quis tincidunt eros. Nullam tellus turpis, fringilla sit amet congue ut, luctus a nulla.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, fermentum orci ac, aliquam lectus. Integer sodales augue id arcu malesuada, vel convallis lacus consequat. Curabitur in nulla ut magna vehicula libero luctus in ipsum ac, faucibus tincidunt ante.</p>
+                <ul class="ab">
+                    <li><a href="#">Comprehensive Diagnostic Services</a></li>
+                    <li><a href="#">Advanced Diagnostic Technology</a></li>
+                    <li><a href="#">Experienced and Caring Team</a></li>
+                    <li><a href="#">Contact Us for Appointments</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <div class="reviews text-center">
+        <div class="container">
+            <h2>What Patients Are Saying About Us</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="review-box">
+                        <p class="review-text">"Great experience with Diagnostic Center. The staff is friendly, and the services are top-notch."</p>
+                        <p class="review-author">- John Doe</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="review-box">
+                        <p class="review-text">"I appreciate the professionalism and efficiency of the Diagnostic Center team. Highly recommended."</p>
+                        <p class="review-author">- Jane Smith</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="review-box">
+                        <p class="review-text">"The diagnostic services here are accurate, and the staff makes you feel comfortable. A trusted medical partner."</p>
+                        <p class="review-author">- Robert Johnson</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Opening Hours Section -->
+    <div class="opening-hours text-center">
+        <div class="container">
+            <h2>Opening Hours of Diagnostic Center</h2>
+            <p>Monday - Friday: 8:00 AM - 8:00 PM</p>
+            <p>Saturday: 9:00 AM - 6:00 PM</p>
+            <p>Sunday: Closed</p>
+        </div>
+    </div>
+
+    <!-- Our Services Section -->
+    <div class="our-services text-center">
+        <div class="container">
+            <h2>Our Services at Diagnostic Center</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="service-icon glyphicon glyphicon-heart"></i>
+                    <h4>Cardiology</h4>
+                    <p>Specialized diagnostic services for heart-related conditions.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="service-icon glyphicon glyphicon-scissors"></i>
+                    <h4>Surgery</h4>
+                    <p>State-of-the-art surgical procedures and consultations.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="service-icon glyphicon glyphicon-plus"></i>
+                    <h4>Emergency Care</h4>
+                    <p>Round-the-clock emergency care with experienced professionals.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="service-icon glyphicon glyphicon-heart-empty"></i>
+                    <h4>Radiology</h4>
+                    <p>Advanced radiological services for precise diagnostics.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="service-icon glyphicon glyphicon-eye-open"></i>
+                    <h4>Ophthalmology</h4>
+                    <p>Comprehensive eye care services and vision diagnostics.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer text-center">
+        <div class="container">
+            <div class="footer-logo">
+                <h1><a class="navbar-brand" href="index.html"><span style="color: white;">Diagnostic Center </span><img src="images/logo.png" alt=" " /></a></h1>
+            </div>
+            <p class="footer-contact">123 Main Street, Cityville, Country, India</p>
+            <p class="footer-contact">Email: info@diagnosticcenter.in | Phone: +91 123 456 7890</p>
+            <p>&copy; 2023 Diagnostic Center. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>

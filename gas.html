@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gastrointestinal Health Checkup Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        select {
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Comprehensive Gastrointestinal Health Checkup</h2>
+        <p>
+            This health check is designed for assessing and monitoring various aspects of gastrointestinal health.
+        </p>
+
+        <h3>Tests Included:</h3>
+        <ul>
+            <li><strong>Colonoscopy:</strong> Examines the colon for abnormalities and signs of colorectal cancer.</li>
+            <li><strong>Upper Endoscopy:</strong> Investigates the upper gastrointestinal tract for conditions such as ulcers and inflammation.</li>
+            <li><strong>Stool Test:</strong> Analyzes stool samples for signs of gastrointestinal bleeding or infections.</li>
+            <li><strong>Liver Function Tests:</strong> Evaluates the health and function of the liver.</li>
+            <li><strong>Abdominal Ultrasound:</strong> Uses ultrasound to assess organs in the abdominal cavity.</li>
+            <li><strong>Esophageal Manometry:</strong> Measures muscle contractions in the esophagus.</li>
+            <li><strong>CT Enterography:</strong> Provides detailed images of the small intestine using CT scans.</li>
+            <li><strong>Gastrointestinal Blood Tests:</strong> Checks for markers related to gastrointestinal health.</li>
+            <li><strong>Gastrointestinal Health Questionnaire:</strong> Assesses symptoms and risk factors related to gastrointestinal health.</li>
+            <!-- Add more gastrointestinal health checkup tests if needed -->
+        </ul>
+
+        <label for="selectIndividuals">Select Number of Individuals:</label>
+        <select id="selectIndividuals" onchange="updateSelection()">
+            <option value="1">1 Individual</option>
+            <option value="2">2 Individuals</option>
+            <option value="3">3 Individuals</option>
+            <option value="4">4 Individuals</option>
+            <option value="5">5 Individuals</option>
+        </select>
+
+        <label for="selectFamily">Select Family Package:</label>
+        <select id="selectFamily" onchange="updateSelection()">
+            <option value="single">Single Family (5 Individuals)</option>
+            <option value="double">Double Family (10 Individuals)</option>
+            <!-- Add more family package options if needed -->
+        </select>
+
+        <button onclick="calculatePayment()">Calculate Payment</button>
+        <div id="paymentDetails"></div>
+    </div>
+
+    <script>
+        function updateSelection() {
+            var selectIndividuals = document.getElementById("selectIndividuals");
+            var selectFamily = document.getElementById("selectFamily");
+
+            if (selectIndividuals.value !== "1") {
+                selectFamily.disabled = true;
+            } else {
+                selectFamily.disabled = false;
+            }
+
+            if (selectFamily.value !== "single") {
+                selectIndividuals.disabled = true;
+            } else {
+                selectIndividuals.disabled = false;
+            }
+        }
+
+        function calculatePayment() {
+            var selectIndividuals = document.getElementById("selectIndividuals");
+            var selectFamily = document.getElementById("selectFamily");
+            var numberOfIndividuals = parseInt(selectIndividuals.value);
+
+            var pricePerIndividual = 1799.00; // Set your base price per individual
+            var totalPrice = numberOfIndividuals * pricePerIndividual;
+
+            // Additional pricing for family packages
+            if (selectFamily.value === "single") {
+                totalPrice *= 5; // Single Family (5 Individuals)
+            } else if (selectFamily.value === "double") {
+                totalPrice *= 10; // Double Family (10 Individuals)
+            }
+
+            var paymentDetailsDiv = document.getElementById("paymentDetails");
+            paymentDetailsDiv.innerHTML = `
+                <p>Total Number of Individuals: ${numberOfIndividuals}</p>
+                <p>Selected Family Package: ${selectFamily.options[selectFamily.selectedIndex].text}</p>
+                <p>Total Price: ₹${totalPrice.toFixed(2)}</p>
+                <button onclick="processPayment()">Proceed to Payment</button>
+            `;
+        }
+
+        function processPayment() {
+            // Implement your payment processing logic here
+            alert("Redirecting to the payment gateway...");
+			 window.location.href = 'payment.html';
+        }
+    </script>
+</body>
+</html>

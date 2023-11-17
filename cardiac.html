@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cardiac Health Check Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        select {
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Comprehensive Cardiac Screening for Heart Health</h2>
+        <p>
+            This health check includes a comprehensive cardiac screening for heart health. It covers a range of tests to assess and monitor the condition of your cardiovascular system.
+        </p>
+
+        <h3>Tests Included:</h3>
+        <ul>
+            <li><strong>Electrocardiogram (ECG or EKG):</strong> Measures the electrical activity of the heart, helping to identify irregularities in heart rhythm.</li>
+            <li><strong>Cholesterol Level Test:</strong> Measures the levels of different types of cholesterol in the blood, helping to assess the risk of heart disease.</li>
+            <li><strong>Stress Test:</strong> Evaluates how well your heart responds to stress, typically through physical exercise, to assess cardiovascular fitness and identify potential issues.</li>
+            <li><strong>Echocardiogram:</strong> Uses sound waves to create detailed images of the heart's structure and function, helping to diagnose heart conditions.</li>
+            <li><strong>Blood Pressure Measurement:</strong> Checks the force of blood against the walls of the arteries, providing important information about heart health and potential risks.</li>
+            <li><strong>Lipid Profile Test:</strong> Measures various types of lipids in the blood, including cholesterol and triglycerides.</li>
+            <li><strong>Cardiac CT Scan:</strong> Provides detailed images of the heart and blood vessels to assess heart health.</li>
+            <li><strong>C-Reactive Protein (CRP) Test:</strong> Measures inflammation in the body, which can be associated with heart disease.</li>
+            <li><strong>Homocysteine Test:</strong> Measures the level of homocysteine in the blood, which can be a risk factor for cardiovascular disease.</li>
+            <li><strong>Treadmill Exercise Test:</strong> Evaluates heart function during physical activity to assess cardiovascular fitness.</li>
+            <li><strong>Coronary Angiography:</strong> Uses X-rays to visualize the blood vessels supplying the heart.</li>
+            <li><strong>Natriuretic Peptide Test:</strong> Measures levels of peptides that indicate heart failure.</li>
+            <li><strong>Carotid Ultrasound:</strong> Examines the carotid arteries to assess the risk of stroke and heart disease.</li>
+            <li><strong>Holter Monitor:</strong> Records the heart's electrical activity over a period, usually 24-48 hours.</li>
+            <li><strong>Doppler Ultrasound:</strong> Uses sound waves to assess blood flow in the arteries and veins.</li>
+            <li><strong>Coronary Calcium Scan:</strong> Measures the amount of calcium in the coronary arteries, indicating potential heart disease.</li>
+            <li><strong>B-type Natriuretic Peptide (BNP) Test:</strong> Measures a protein that can indicate heart failure.</li>
+            <li><strong>Ambulatory Blood Pressure Monitoring:</strong> Monitors blood pressure over a 24-hour period.</li>
+            <li><strong>Thyroid Function Tests:</strong> Checks thyroid hormone levels, which can impact heart health.</li>
+            <li><strong>Peripheral Arterial Disease (PAD) Test:</strong> Assesses blood flow in the legs and arms.</li>
+        </ul>
+
+        <label for="selectPeople">Select Number of People:</label>
+        <select id="selectPeople" onchange="updateSelection()">
+            <option value="1">1 Person</option>
+            <option value="2">2 People</option>
+            <option value="3">3 People</option>
+            <option value="4">4 People</option>
+            <option value="5">5 People</option>
+        </select>
+
+        <label for="selectFamily">Select Family Package:</label>
+        <select id="selectFamily" onchange="updateSelection()">
+            <option value="single">Single Family (5 Members)</option>
+            <option value="double">Double Family (10 Members)</option>
+            <!-- Add more family package options if needed -->
+        </select>
+
+        <button onclick="calculatePayment()">Calculate Payment</button>
+        <div id="paymentDetails"></div>
+    </div>
+	<script>
+        function updateSelection() {
+            var selectPeople = document.getElementById("selectPeople");
+            var selectFamily = document.getElementById("selectFamily");
+
+            if (selectPeople.value !== "1") {
+                selectFamily.disabled = true;
+            } else {
+                selectFamily.disabled = false;
+            }
+
+            if (selectFamily.value !== "single") {
+                selectPeople.disabled = true;
+            } else {
+                selectPeople.disabled = false;
+            }
+        }
+
+        function calculatePayment() {
+            var selectPeople = document.getElementById("selectPeople");
+            var selectFamily = document.getElementById("selectFamily");
+            var numberOfPeople = parseInt(selectPeople.value);
+
+            var pricePerPerson = 1499.00; // Set your base price per person
+            var totalPrice = numberOfPeople * pricePerPerson;
+
+            // Additional pricing for family packages
+            if (selectFamily.value === "single") {
+                totalPrice *= 5; // Single Family (5 Members)
+            } else if (selectFamily.value === "double") {
+                totalPrice *= 10; // Double Family (10 Members)
+            }
+
+            var paymentDetailsDiv = document.getElementById("paymentDetails");
+            paymentDetailsDiv.innerHTML = `
+                <p>Total Number of People: ${numberOfPeople}</p>
+                <p>Selected Family Package: ${selectFamily.options[selectFamily.selectedIndex].text}</p>
+                <p>Total Price: ₹${totalPrice.toFixed(2)}</p>
+                <button onclick="processPayment()">Proceed to Payment</button>
+            `;
+        }
+
+        function processPayment() {
+            // Implement your payment processing logic here
+            alert("Redirecting to the payment gateway...");
+			 window.location.href = 'payment.html';
+        }
+    </script>
+	
+ 
+</body>
+</html>

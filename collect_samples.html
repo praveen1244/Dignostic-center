@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add your custom styles here */
+        body {
+            background: linear-gradient(to right, #0a91d5, #0eeeae);
+            color: #000;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .form-control {
+            border: 1px solid #ced4da;
+            color: #000;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logo">
+        <h1><a class="navbar-brand" href="index.html"><span style="color: black;"></span>Diagnostic Center <img
+                    src="images/logo.png" alt=" " /></a></h1>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+            aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="bs-example-navbar-collapse-1">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html"><span style="color: black;" class="menu__helper">Home</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.php"><span style="color: black;" class="menu__helper">About Us</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span style="color: black;" class="menu__helper">Book your medical test</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="package.html" style="color: red;">Book Your Health Package</a></li>
+                        <li><a href="test.html" style="color: red;">Book Your Test</a></li>
+                        <li><a href="collect_samples.html" style="color: red;">Collect Samples from Home</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost/project/login.php"><span style="color: black;"
+                            class="menu__helper">Login</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.php"><span style="color: black;" class="menu__helper">Contact Us</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 class="mt-5">Blood Sample Collection</h1>
+        <form id="blood-collection-form" action="blood_collection.php" method="post" class="mt-4">
+            <div class="form-group">
+                <label for="full-name">Full Name:</label>
+                <input type="text" id="full-name" name="full-name" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Home Address:</label>
+                <input type="text" id="address" name="address" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="appointment-date">Preferred Appointment Date:</label>
+                <input type="date" id="appointment-date" name="appointment-date" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="symptoms">Symptoms (if any):</label>
+                <textarea id="symptoms" name="symptoms" class="form-control" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender:</label><br>
+                <div class="form-check form-check-inline">
+                    <input type="radio" id="male" name="gender" value="male" class="form-check-input" required>
+                    <label for="male" class="form-check-label">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" id="female" name="gender" value="female" class="form-check-input" required>
+                    <label for="female" class="form-check-label">Female</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" id="other" name="gender" value="other" class="form-check-input" required>
+                    <label for="other" class="form-check-label">Other</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="age-group">Age Group:</label>
+                <select id="age-group" name="age-group" class="form-control" required multiple>
+                    <option value="child">Child</option>
+                    <option value="adult">Adult</option>
+                    <option value="senior">Senior</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="num-people">Number of People:</label>
+                <input type="number" id="num-people" name="num-people" class="form-control" required>
+            </div>
+
+            <button type="button" onclick="calculatePrice()" class="btn btn-primary">Calculate Price</button>
+
+            <!-- Display calculated price -->
+            <div class="form-group mt-3" id="price-explanation-section" style="display: none;">
+                <label>Total Price:</label>
+                <ul id="price-explanation" class="list-unstyled"></ul>
+            </div>
+
+            <div class="form-group">
+                <label for="additional-details">Additional Details:</label>
+                <textarea id="additional-details" name="additional-details" class="form-control" rows="4"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Request Blood Collection</button>
+        </form>
+
+        <div id="confirmation" style="display: none;">
+            <p>Your request for blood sample collection has been received. Our team will contact you soon to confirm the
+                appointment.</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Function to calculate the price based on age group and number of people
+        function calculatePrice() {
+            // Get the selected age groups
+            const ageGroups = Array.from(document.getElementById("age-group").selectedOptions).map(option => option.value);
+
+            // Get the number of people
+            const numPeople = document.getElementById("num-people").value;
+
+            // Perform your price calculation logic here
+            let totalPrice = 0;
+
+            // Create a map to store the price for each age group
+            const priceMap = new Map([
+                ["child", 100],
+                ["adult", 500],
+                ["senior", 1000],
+            ]);
+
+            // Calculate the total price for each selected age group
+            const priceExplanation = ageGroups.map(ageGroup => {
+                const price = priceMap.get(ageGroup) * numPeople;
+                totalPrice += price;
+                return `<li>${ageGroup.charAt(0).toUpperCase() + ageGroup.slice(1)}: ₹${price}</li>`;
+            }).join('');
+
+            // Display the total price and explanation
+            document.getElementById("price-explanation").innerHTML = priceExplanation;
+            document.getElementById("price-explanation-section").style.display = "block";
+        }
+
+        // Handle form submission
+        const collectionForm = document.getElementById("blood-collection-form");
+        const confirmationDiv = document.getElementById("confirmation");
+
+        collectionForm.addEventListener("submit", (event) => {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Show the confirmation message
+            confirmationDiv.style.display = "block";
+            setTimeout(function () {
+                confirmationDiv.style.display = "none";
+                alert("Your request for blood sample collection has been received. Our team will contact you soon to confirm the appointment."); // Show dialogue box
+                location.reload(); // Refresh the page
+            }, 2000); // Set timeout for 2 seconds
+        });
+    </script>
+</body>
+
+</html>

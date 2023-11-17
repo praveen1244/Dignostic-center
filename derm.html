@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dermatological Health Check Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        select {
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Comprehensive Dermatological Screening for Skin Health</h2>
+        <p>
+            This health check includes a comprehensive dermatological screening for skin health. It covers a range of tests to assess and monitor the condition of your skin.
+        </p>
+
+        <h3>Tests Included:</h3>
+        <ul>
+            <li><strong>Skin Examination:</strong> Visual inspection of the skin to identify any abnormalities or skin conditions.</li>
+            <li><strong>Mole Mapping:</strong> Mapping and monitoring of moles to detect any changes that may indicate skin cancer.</li>
+            <li><strong>Biopsy:</strong> Removal of a small sample of skin for laboratory analysis to diagnose skin conditions.</li>
+            <li><strong>Allergy Testing:</strong> Identifies allergens that may contribute to skin issues.</li>
+            <li><strong>Microscopic Examination:</strong> Examines skin cells under a microscope for detailed analysis.</li>
+            <li><strong>Phototherapy:</strong> Treatment using ultraviolet light to address certain skin conditions.</li>
+            <li><strong>Patch Testing:</strong> Identifies contact allergens that may cause skin irritation.</li>
+            <li><strong>Sebum Analysis:</strong> Measures the amount of sebum (skin oil) to assess skin health.</li>
+            <li><strong>Microbiome Analysis:</strong> Analyzes the microbiota on the skin to understand its impact on skin health.</li>
+            <li><strong>Wound Culture:</strong> Collects and analyzes samples from skin wounds to identify infections.</li>
+            <li><strong>Elasticity Test:</strong> Measures the skin's elasticity to assess signs of aging and dehydration.</li>
+            <li><strong>UV Damage Assessment:</strong> Evaluates skin damage caused by ultraviolet (UV) radiation.</li>
+            <!-- Add more dermatological tests if needed -->
+        </ul>
+
+        <label for="selectPeople">Select Number of People:</label>
+        <select id="selectPeople" onchange="updateSelection()">
+            <option value="1">1 Person</option>
+            <option value="2">2 People</option>
+            <option value="3">3 People</option>
+            <option value="4">4 People</option>
+            <option value="5">5 People</option>
+        </select>
+
+        <label for="selectFamily">Select Family Package:</label>
+        <select id="selectFamily" onchange="updateSelection()">
+            <option value="single">Single Family (5 Members)</option>
+            <option value="double">Double Family (10 Members)</option>
+            <!-- Add more family package options if needed -->
+        </select>
+
+        <button onclick="calculatePayment()">Calculate Payment</button>
+        <div id="paymentDetails"></div>
+    </div>
+
+    <script>
+        function updateSelection() {
+            var selectPeople = document.getElementById("selectPeople");
+            var selectFamily = document.getElementById("selectFamily");
+
+            if (selectPeople.value !== "1") {
+                selectFamily.disabled = true;
+            } else {
+                selectFamily.disabled = false;
+            }
+
+            if (selectFamily.value !== "single") {
+                selectPeople.disabled = true;
+            } else {
+                selectPeople.disabled = false;
+            }
+        }
+
+        function calculatePayment() {
+            var selectPeople = document.getElementById("selectPeople");
+            var selectFamily = document.getElementById("selectFamily");
+            var numberOfPeople = parseInt(selectPeople.value);
+
+            var pricePerPerson = 1499.00; // Set your base price per person
+            var totalPrice = numberOfPeople * pricePerPerson;
+
+            // Additional pricing for family packages
+            if (selectFamily.value === "single") {
+                totalPrice *= 5; // Single Family (5 Members)
+            } else if (selectFamily.value === "double") {
+                totalPrice *= 10; // Double Family (10 Members)
+            }
+
+            var paymentDetailsDiv = document.getElementById("paymentDetails");
+            paymentDetailsDiv.innerHTML = `
+                <p>Total Number of People: ${numberOfPeople}</p>
+                <p>Selected Family Package: ${selectFamily.options[selectFamily.selectedIndex].text}</p>
+                <p>Total Price: ₹${totalPrice.toFixed(2)}</p>
+                <button onclick="processPayment()">Proceed to Payment</button>
+            `;
+        }
+
+        function processPayment() {
+            // Implement your payment processing logic here
+            alert("Redirecting to the payment gateway...");
+			 window.location.href = 'payment.html';
+        }
+    </script>
+</body>
+</html>
